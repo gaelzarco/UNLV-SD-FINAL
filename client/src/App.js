@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 
 import LandingPage from './components/LandingPage';
 import CreateUser from './components/CreateUser'
+import Catalog from './components/Catalog';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<LandingPage />}/>
-            <Route path='/createuser' element={<CreateUser />}/>
+          <Route path='/createuser' element={<CreateUser />} />
+          <Route path='/catalog' element={<Catalog/>} />
         </Routes>
       </BrowserRouter>
     </div>
