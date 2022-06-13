@@ -18,11 +18,14 @@ app.get('/server', (req, res) => {
 })
 
 //controllers
+const userController = require('./controllers/user_controller')
+app.use('/user', userController)
+
 const catalogController = require('./controllers/catalog_controller')
 app.use('/catalog', catalogController)
 
-const userController = require('./controllers/user_controller')
-app.use('/user', userController)
+const cartController = require('./controllers/cart_controller')
+app.use('/cart', cartController)
 
 //listen
 app.listen(PORT, () => {

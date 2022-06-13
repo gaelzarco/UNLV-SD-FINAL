@@ -1,7 +1,7 @@
 const cart = require('express').Router()
 const db = require('../models')
 
-cart.get('/cart/:id', (req, res) => {
+cart.get('/cart/:id', async (req, res) => {
     const id = req.params.id
     try {
         let cart = await db.Cart.findOne({ userId: id })
@@ -16,7 +16,7 @@ cart.get('/cart/:id', (req, res) => {
     }
 })
 
-cart.post('/cart/:id', (req, res) => {
+cart.post('/cart/:id', async (req, res) => {
     const id = req.params.id
     const { productId, quantity } = req.body
 
@@ -66,3 +66,5 @@ cart.post('/cart/:id', (req, res) => {
 cart.delete('/cart/:userId/:itemId', (req, res) => {
     res.status(200)
 })
+
+module.exports = cart
