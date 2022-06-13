@@ -18,7 +18,6 @@ function LandingPage() {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        console.log(credentials)
 
         const res = await fetch(`http://localhost:5000/user/login/`, {
             method: 'POST',
