@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 function CreateUser() {
 
-  const history = useHistory()
+  const navigate = useNavigate()
 
 	const [user, setUser] = useState({
 		firstName: '',
@@ -24,7 +24,7 @@ function CreateUser() {
 			body: JSON.stringify(user)
     })
 
-    history.push('/')
+    navigate('/', { replace: true })
   }
 
   return (

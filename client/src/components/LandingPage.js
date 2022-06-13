@@ -29,7 +29,7 @@ function LandingPage() {
 
         if (res.status === 200) {
             setCurrentUser(data.user)
-            navigate('/catalog', {replace: true})
+            navigate('/catalog', { replace: true })
         } else {
             setErrMessage(data.message)
         }
