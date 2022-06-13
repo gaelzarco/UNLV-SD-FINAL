@@ -17,7 +17,8 @@ cart.get('/cart/:id', (req, res) => {
 })
 
 cart.post('/cart/:id', (req, res) => {
-    res.status(200)
+    const id = req.params.id
+    const { productId, quantity } = req.body
 })
 
 cart.delete('/cart/:userId/:itemId', (req, res) => {

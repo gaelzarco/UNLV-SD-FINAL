@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 function ProductView() {
     const [ product, setProduct ] = useState(null)
+    const [ quantity, setQuantity ] = useState(0)
     const { id } = useParams()
 
     useEffect(() => {
@@ -18,11 +19,11 @@ function ProductView() {
     const displayProduct = () => {
         if (product) {
             return (
-                <div>
-                    <h3>{product.name}</h3>
-                    <img src={product.image} alt={product.name} width='500'/>
-                    <p>{product.description}</p>
-                    <h3>${product.price}</h3>
+                <div className='product-view'>
+                    <h3 id='prod-name'>{product.name}</h3>
+                    <img id='prod-image' src={product.image} alt={product.name} width='350'/>
+                    <p id='prod-desc'>{product.description}</p>
+                    <h3 id='prod-price'>${product.price}</h3>
                 </div>
             )
         }
@@ -31,7 +32,17 @@ function ProductView() {
     return (
         <div>
             {displayProduct()}
-            <button>Add To Cart</button>
+            <div className='cartsubmit'>
+                <div className='total'>
+                    <h4>Quantity</h4>
+                    <h4>{quantity}</h4>
+                </div>
+                <div className='btn-total'>
+                    <button onClick={() => {setQuantity(quantity - 1)}}> - </button>
+                    <button onClick={() => {setQuantity(quantity + 1)}}> + </button>
+                </div>
+                <button>Add To Cart</button>
+            </div>
         </div>
     )
 }
