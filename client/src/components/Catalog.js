@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 function Catalog() {
 
     // const { CurrentUser } = useContext(CurrentUser)
+
     const [ catalog, setCatalog ] = useState([])
 
     useEffect(() => {
@@ -22,11 +23,9 @@ function Catalog() {
             <h1>Catalog</h1>
             {catalog.map((product, index) => {
                 return (
-                    <div key={index}>
+                    <div key={index} href={`/catalog/product/${product._id}`}>
                         <h3>{product.name}</h3>
                         <img src={product.image} alt={product.name} width='200'/>
-                        <p>{product.description}</p>
-                        <h3>$ {product.price}</h3>
                     </div>
                 )
             })}

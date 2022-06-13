@@ -25,4 +25,8 @@ catalog.post('/', async (req, res) => {
     }
 })
 
+catalog.get('/:productId', async (req, res) => {
+    db.Product.findById(req.params.productId)
+})
+
 module.exports = catalog

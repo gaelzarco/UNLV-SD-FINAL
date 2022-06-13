@@ -6,6 +6,7 @@ import LandingPage from './components/LandingPage';
 import CreateUser from './components/CreateUser'
 import Catalog from './components/Catalog';
 import CreateCatalog from './components/CreateCatalog';
+import ProductView from './components/ProductView'
 
 import CurrentUserProvider from './contexts/CurrentUser';
 
@@ -15,10 +16,11 @@ function App() {
       <CurrentUserProvider>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<LandingPage />}/>
-          <Route path='/createuser' element={<CreateUser />} />
+          <Route path='/' element={<LandingPage/>} />
+          <Route path='/createuser' element={<CreateUser/>} />
           <Route path='/catalog' element={<Catalog/>} />
           <Route path='/createcatalog' element={<CreateCatalog/>} />
+          <Route path='/catalog/product/:id' element={<ProductView/>} />
         </Routes>
       </BrowserRouter>
       </CurrentUserProvider>
