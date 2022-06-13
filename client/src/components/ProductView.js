@@ -31,6 +31,7 @@ function ProductView() {
     return (
         <div>
             {displayProduct()}
+            <button>Add To Cart</button>
         </div>
     )
 }
