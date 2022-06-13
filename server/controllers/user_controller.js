@@ -23,8 +23,10 @@ user.post('/', async (req, res) => {
 })
 
 user.post('/login', async (req, res) => {
+    console.log(req.body)
 
     if(!req.body.email || !req.body.password) {
+        console.log(req.body.password, req.body.email)
         return res.status(400).json({ message: 'Please enter all fields' })
     }
 

@@ -1,5 +1,6 @@
 //dependencies
 const express = require('express')
+const bodyParser = require('body-parser')
 const cors = require('cors')
 
 //configuration
@@ -7,7 +8,9 @@ require('dotenv').config()
 const PORT = process.env.PORT
 const app = express()
 app.use(cors())
+app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 
 //routes
 app.get('/server', (req, res) => {

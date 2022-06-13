@@ -17,7 +17,10 @@ function LandingPage() {
     const [ errMessage, setErrMessage ] = useState(null)
 
     async function handleSubmit(e) {
-        const res = await fetch(`/user/login`, {
+        e.preventDefault()
+        console.log(credentials)
+
+        const res = await fetch(`http://localhost:5000/user/login/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +32,7 @@ function LandingPage() {
 
         if (res.status === 200) {
             setCurrentUser(data.user)
-            navigate('/catalog', { replace: true })
+            navigate('/catalog')
         } else {
             setErrMessage(data.message)
         }

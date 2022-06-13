@@ -16,7 +16,7 @@ function CreateUser() {
   async function handleSubmit(e) {
     e.preventDefault()
 
-    await fetch('/user', {
+    await fetch('http://localhost:5000/user/', {
       method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
