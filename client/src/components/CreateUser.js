@@ -73,7 +73,7 @@ function CreateUser() {
                 <option value='Admin'>Admin</option>
                 <option value='Customer'>Customer</option>
             </select>
-            <input type='submit'></input>
+            <input type='submit'/>
           </form>
         </div>
     </div>

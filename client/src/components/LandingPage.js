@@ -72,7 +72,7 @@ function LandingPage() {
                     onChange={e => setCredentials({ ...credentials, password: e.target.value })}
                     required
                 />
-                <input type='submit'></input>
+                <input type='submit'/>
             </form>
           </div>
   
