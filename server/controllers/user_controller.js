@@ -5,7 +5,6 @@ const bcrypt = require('bcrypt')
 user.post('/', async (req, res) => {
     const { password, ...rest } = req.body
 
-
     if(!password || !rest) {
         return res.status(400).json({message: 'Please enter all fields'});
     }

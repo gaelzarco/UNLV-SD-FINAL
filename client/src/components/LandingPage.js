@@ -17,7 +17,22 @@ function LandingPage() {
     const [ errMessage, setErrMessage ] = useState(null)
 
     async function handleSubmit(e) {
-        const res = await fetch(`/user/login`)
+        const res = await fetch(`/user/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(credentials)
+        })
+
+        const data = await res.json()
+
+        if (res.status === 200) {
+            setCurrentUser(data.user)
+            history.push('/')
+        } else {
+            setErrMessage(data.message)
+        }
     }
 
     return (
@@ -25,14 +40,25 @@ function LandingPage() {
         <h1 className='title'>
             React.js Landing Page
           </h1>
+          
+          {errMessage !== null
+                ? (
+                    <div className="error" role="alert">
+                        {errMessage}
+                    </div>
+                )
+                : null
+            }
   
           <div id='loginlanding'>
-            <form action='/user/login' method='POST'>
+            <form onSubmit={handleSubmit}>
                 <label htmlFor='email'> Email </label>
                 <input 
                     type='text'
                     id='email'
                     name='email'
+                    value={credentials.email}
+                    onChange={e => setCredentials({ ...credentials, email: e.target.value })}
                     required
                 />
                 <label htmlFor='password'> Password </label>
@@ -40,6 +66,8 @@ function LandingPage() {
                     type='text' 
                     id='password' 
                     name='password'
+                    value={credentials.password}
+                    onChange={e => setCredentials({ ...credentials, password: e.target.value })}
                     required
                 />
                 <input type='submit'></input>
