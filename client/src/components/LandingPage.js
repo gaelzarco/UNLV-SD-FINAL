@@ -1,11 +1,11 @@
 import '../App.css';
 import { useContext, useState } from 'react'
-import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { CurrentUser } from "../contexts/CurrentUser"
 
 function LandingPage() {
 
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const { setCurrentUser } = useContext(CurrentUser)
 
@@ -29,7 +29,7 @@ function LandingPage() {
 
         if (res.status === 200) {
             setCurrentUser(data.user)
-            history.push('/')
+            navigate('/catalog', {replace: true})
         } else {
             setErrMessage(data.message)
         }
