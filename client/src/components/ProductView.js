@@ -22,7 +22,7 @@ function ProductView() {
                     <h3>{product.name}</h3>
                     <img src={product.image} alt={product.name} width='500'/>
                     <p>{product.description}</p>
-                    <h3>$ {product.price}</h3>
+                    <h3>${product.price}</h3>
                 </div>
             )
         }
@@ -30,7 +30,7 @@ function ProductView() {
 
     return (
         <div>
-            
+            {displayProduct()}
         </div>
     )
 }
