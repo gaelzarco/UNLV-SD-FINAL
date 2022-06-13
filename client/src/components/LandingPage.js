@@ -1,6 +1,6 @@
 import '../App.css';
 import { useContext, useState } from 'react'
-import { useHistory } from "react-router"
+import { useHistory } from "react-router-dom"
 import { CurrentUser } from "../contexts/CurrentUser"
 
 function LandingPage() {
@@ -40,7 +40,7 @@ function LandingPage() {
         <h1 className='title'>
             React.js Landing Page
           </h1>
-          
+
           {errMessage !== null
                 ? (
                     <div className="error" role="alert">
