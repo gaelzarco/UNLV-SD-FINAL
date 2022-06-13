@@ -13,7 +13,7 @@ function ProductView() {
             setProduct(resData)
         }
         fetchData()
-    },[])
+    },[id])
 
     const displayProduct = () => {
         if (product) {

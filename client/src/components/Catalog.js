@@ -16,20 +16,19 @@ function Catalog() {
         fetchData()
     },[])
 
-    console.log(catalog)
 
     return (
         <main>
             <h1>Catalog</h1>
             {catalog.map((product, index) => {
                 return (
-                    <div key={index} href={`/catalog/product/${product._id}`}>
+                    <div key={index}>
                         <h3>{product.name}</h3>
                         <img src={product.image} alt={product.name} width='200'/>
                     </div>
                 )
             })}
-            <a href='/createcatalog'>Create Product</a>
+            <a href='/catalog/create'>Create Product</a>
         </main>
     );
 }

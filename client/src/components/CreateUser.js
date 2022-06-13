@@ -24,7 +24,7 @@ function CreateUser() {
 			body: JSON.stringify(user)
     })
 
-    navigate('/', { replace: true })
+    navigate('/catalog', { replace: true })
   }
 
   return (

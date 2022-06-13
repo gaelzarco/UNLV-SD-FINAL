@@ -77,7 +77,7 @@ function LandingPage() {
           </div>
   
           <div>
-            <a href="/createuser">New? Create Account</a>
+            <a href="/user/create">New? Create Account</a>
           </div>
 
           <div>
