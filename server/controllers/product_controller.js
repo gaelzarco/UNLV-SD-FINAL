@@ -1,7 +1,11 @@
 const product = require('express').Router()
+const db = require('../models')
 
-product.get('/', (req, res) => {
-    return res.status(200).json({ message: 'Product controller set-up' })
+product.get('/', async (req, res) => {
+    await db.Product.findAll()
+    .then(() => {
+        return res.status(200).json(products)
+    })
 })
 
 module.exports = product
