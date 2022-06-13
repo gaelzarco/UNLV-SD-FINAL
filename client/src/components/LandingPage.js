@@ -79,6 +79,10 @@ function LandingPage() {
           <div>
             <a href="/createuser">New? Create Account</a>
           </div>
+
+          <div>
+              <a href="/catalog">Skip login</a>
+          </div>
       </div>
     );
   }
