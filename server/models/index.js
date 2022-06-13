@@ -2,7 +2,7 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 
 mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, () => {
-   console.log("Data sittin' at" , process.env.MONGO_URI)
+   console.log(`mongoose connection successful at ${process.env.MONGO_URI}`)
 })
 
 module.exports.Cart = require('./cart')

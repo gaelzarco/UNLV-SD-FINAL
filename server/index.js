@@ -10,17 +10,18 @@ app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 
 //routes
-app.get('/', (re, res) => {
+app.get('/server', (req, res) => {
     res.json({ message: 'Connected to Server 200 OK' })
 })
 
 //controllers
+const userController = require('./controllers/user_controller')
+app.use('/user', userController)
+
 const productController = require('./controllers/product_controller')
 app.use('/product', productController)
 
-const userController = require('./controllers/product_controller')
-app.use('/product', userController)
-
+//listen
 app.listen(PORT, () => {
     console.log(`Express server 200 OK on PORT ${PORT}`)
 })

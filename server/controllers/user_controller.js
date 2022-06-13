@@ -3,14 +3,17 @@ const user = express.Router()
 const db = require('../models')
 
 user.post('/', (req, res) => {
-    console.log(req.body)
+    const { firstName, lastName, email, password, role } = req.body
+    if(!firstName || !lastName || !email || !password || !role){
+        return res.status(400).json({msg: 'Please enter all fields'});
+    }
     db.User.create(req.body)
     .then(() => {
-        res.status(200).json({ message: 'User created 200 OK' })
+        return res.status(200).json({ message: 'User created 200 OK' })
     }) 
     .catch(err => {
         console.log(`Error occured ${err}`)
-        res.status(400).json({ message: 'Something went wrong' })
+        return res.status(400).json({ message: 'Something went wrong or user already exists' })
     }) 
 })
 

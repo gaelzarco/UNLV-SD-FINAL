@@ -17,17 +17,14 @@ const userSchema = new Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        minlength: [6, 'Password must be atleast 6 characters long']
     },
     role: {
         type: String,
         enum: [ 'Admin', 'Customer' ],
         required: true
-    },
-    cart: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Cart'
-    }]
+    }
 })
 
 const User = mongoose.model('User', userSchema)
