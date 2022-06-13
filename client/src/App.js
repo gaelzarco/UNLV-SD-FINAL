@@ -22,6 +22,10 @@ function App() {
         </Routes>
       </BrowserRouter>
       </CurrentUserProvider>
+
+      <footer className='footer'>
+          <a href="">Created by Gael Zarco</a>
+      </footer>
     </div>
   );
 }
