@@ -1,34 +1,39 @@
-const express = require('express')
-const user = express.Router()
+const user = require('express').Router()
 const db = require('../models')
+const bcrypt = require('bcrypt')
 
-user.post('/', (req, res) => {
-    const { firstName, lastName, email, password, role } = req.body
+user.post('/', async (req, res) => {
+    const { password, ...rest } = req.body
 
-    if(!firstName || !lastName || !email || !password || !role){
+
+    if(!password || !rest) {
         return res.status(400).json({message: 'Please enter all fields'});
     }
-    
-    db.User.create(req.body)
-    .then(() => {
-        return res.status(200).json({ message: 'User created 200 OK' })
-    }) 
 
-    .catch(err => {
-        console.log(`Error occured ${err}`)
-        return res.status(400).json({ message: 'Something went wrong or user already exists' })
-    }) 
+    if (await db.User.find({ email: req.body.email }) === []) {
+        return res.status(400).json({ message: 'User already exists' })
+    }
+
+    db.User.create({ 
+        ...rest,
+        password: await bcrypt.hash(password, 10)
+    })
+    .then(() => {
+            return res.status(200).json({ message: 'User created 200 OK' })
+        })  
 })
 
-user.get('/:userId', (req, res) => {
-    db.User.findById(req.params.userId)
-    .populate('cart')
-    .then(user => {
-        res.status(200).json(user)
-    })
-    .catch(err => {
-        console.log(`Error occured ${err}`)
-    })
+user.post('/login', async (req, res) => {
+
+    if(!req.body.email || !req.body.password) {
+        return res.status(400).json({ message: 'Please enter all fields' })
+    }
+
+    let user = await db.User.findOne({ email: req.body.email })
+
+    if(user === [] || !await bcrypt.compare(req.body.password, user.password)) {
+        return res.status(400).json({ message: 'Could not find user with associated username and password' })
+    } else return res.json({ user })
 })
 
 module.exports = user
