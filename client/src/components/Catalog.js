@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-// import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 function Catalog() {
 
     // const { CurrentUser } = useContext(CurrentUser)
+    const navigate = useNavigate()
 
     const [ catalog, setCatalog ] = useState([])
 
@@ -16,16 +17,20 @@ function Catalog() {
         fetchData()
     },[])
 
-
     return (
         <main>
             <h1>Catalog</h1>
             {catalog.map((product, index) => {
                 return (
-                    <div key={index}>
-                        <h3>{product.name}</h3>
-                        <img src={product.image} alt={product.name} width='200'/>
-                    </div>
+                    <a 
+                    href={`/catalog/product/${product._id}`}
+                    key={index}
+                    >
+                        <div>
+                            <h3>{product.name}</h3>
+                            <img src={product.image} alt={product.name} width='200' />
+                        </div>
+                    </a>
                 )
             })}
             <a href='/catalog/create'>Create Product</a>
