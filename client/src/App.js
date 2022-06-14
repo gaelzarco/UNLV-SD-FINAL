@@ -2,10 +2,12 @@ import './App.css';
 import { BrowserRouter , Routes, Route} from 'react-router-dom'
 
 import LandingPage from './components/LandingPage';
+import UserLogin from './components/UserLogin';
 import CreateUser from './components/CreateUser'
 import Catalog from './components/Catalog';
 import CreateCatalog from './components/CreateCatalog';
 import ProductView from './components/ProductView'
+import Cart from './components/Cart'
 
 import CurrentUserProvider from './contexts/CurrentUser';
 
@@ -19,7 +21,7 @@ function App() {
             <a href='/catalog'>Catalog</a>
           </li>
           <li>
-            <a href='/catalog/create'>Create Product</a>
+            <a href='/catalog/create'>Create</a>
           </li>
           <li>
             <a href='/user/login'>Login</a>
@@ -37,10 +39,12 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path='/' element={<LandingPage/>} />
+            <Route path='/user/login' element={<UserLogin/>} />
             <Route path='/user/create' element={<CreateUser/>} />
             <Route path='/catalog' element={<Catalog/>} />
             <Route path='/catalog/create' element={<CreateCatalog/>} />
             <Route path='/catalog/product/:id' element={<ProductView/>} />
+            <Route path='/cart' element={<Cart/>} />
           </Routes>
         </BrowserRouter>
       </CurrentUserProvider>

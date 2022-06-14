@@ -4,11 +4,12 @@ import { useParams } from "react-router-dom"
 import { CurrentUser } from "../contexts/CurrentUser"
 
 function ProductView() {
-    const [ product, setProduct ] = useState(null)
-    const [ quantity, setQuantity ] = useState(0)
     const { id } = useParams()
     const { currentUser } = useContext(CurrentUser)
     console.log(currentUser)
+
+    const [ product, setProduct ] = useState(null)
+    const [ quantity, setQuantity ] = useState(0)
 
     useEffect(() => {
         const fetchData = async() => {
