@@ -23,7 +23,7 @@ function CreateCatalog() {
                 body: JSON.stringify(product)
         })
     
-        navigate('/catalog', { replace: true })
+        navigate('/catalog')
       }
 
     return (

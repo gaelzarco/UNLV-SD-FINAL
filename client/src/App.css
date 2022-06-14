@@ -9,6 +9,47 @@
   text-align: center;
 }
 
+.navbar {
+  background-color: #333333;
+  display: flex;
+  /* let's align the items so everything is nice and centered */
+  align-items: center;
+}
+
+/* We want all links in the navbar to be #e7e7e7 */
+.navbar a {
+  color: #e7e7e7;
+}
+
+.navbar ul {
+ /* Let's reset the margin and padding of the list so it's is flush. */
+  margin: 0;
+  padding: 0;
+  /* Let's remove the bullet points */
+  list-style-type: none;
+  /* display the list flex and align the items centered */
+  display: flex;
+  align-items:center;
+}
+
+.navbar .brand {
+  display: block;
+  color: #e7e7e7;
+  padding: 0 24px;
+  font-size: 24px;
+}
+
+.navbar ul li a {
+  color: #e7e7e7;
+  padding: 24px;
+  display: block;
+}
+
+.navbar ul a:hover,
+.navbar ul a:focus {
+  background-color: #272727;
+}
+
 .footer {
   display: flex;
   flex: 1;

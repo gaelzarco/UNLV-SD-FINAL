@@ -1,10 +1,6 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from "react-router-dom"
 
 function Catalog() {
-
-    // const { CurrentUser } = useContext(CurrentUser)
-    const navigate = useNavigate()
 
     const [ catalog, setCatalog ] = useState([])
 
@@ -28,12 +24,11 @@ function Catalog() {
                     >
                         <div>
                             <h3>{product.name}</h3>
-                            <img src={product.image} alt={product.name} width='200' />
+                            <img src={product.image} alt={product.name} width='300' />
                         </div>
                     </a>
                 )
             })}
-            <a href='/catalog/create'>Create Product</a>
         </main>
     );
 }

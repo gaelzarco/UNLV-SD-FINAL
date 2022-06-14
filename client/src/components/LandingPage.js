@@ -7,7 +7,7 @@ function LandingPage() {
 
     const navigate = useNavigate()
 
-    const { setCurrentUser } = useContext(CurrentUser)
+    const { currentUser, setCurrentUser } = useContext(CurrentUser)
 
     const [ credentials, setCredentials ] = useState({
         email: '',
@@ -28,12 +28,14 @@ function LandingPage() {
         })
 
         const data = await res.json()
+        console.log(data)
 
-        if (res.status === 200) {
-            setCurrentUser(data.user)
-            navigate('/catalog')
-        } else {
+        if (data.message) {
             setErrMessage(data.message)
+        } else {
+            setCurrentUser(data.user)
+            console.log(currentUser)
+            navigate('/catalog')
         }
     }
 

@@ -24,12 +24,12 @@ function CreateUser() {
 			body: JSON.stringify(user)
     })
 
-    navigate('/catalog', { replace: true })
+    navigate('/catalog')
   }
 
   return (
     <div className='createUserForm'>
-      <h1>Create User</h1>
+      <h1>Sign-up</h1>
         <div className='form'>
           <form onSubmit={handleSubmit}>
             <label htmlFor='firstName'>First Name</label>

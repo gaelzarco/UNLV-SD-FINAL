@@ -31,7 +31,7 @@ user.post('/login', async (req, res) => {
 
     if(user === [] || !await bcrypt.compare(req.body.password, user.password)) {
         return res.status(400).json({ message: 'Could not find user with associated username and password' })
-    } else return res.json({ user })
+    } else return res.status(200).json({ user })
 })
 
 module.exports = user
