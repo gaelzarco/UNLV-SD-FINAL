@@ -37,14 +37,20 @@ cart.post('/:id', async (req, res) => {
             // checks if product exists or not
             if (productIndex > -1) {
                 let productItem = cart.products[productIndex]
+                //finds a specific product and increments its quantity value
                 productItem.quantity += quantity
                 cart.products[productIndex] = productItem
             } else {
+
+                // pushes product to products array in cart
                 cart.products.push({ productId, name, price })
             }
 
+            // calculates total price for cart
             cart.total += quantity * price
             cart = await cart.save()
+
+            // returns cart
             return res.status(201).send(cart)
 
             // If no cart exists, Create one
@@ -59,7 +65,7 @@ cart.post('/:id', async (req, res) => {
         }
     } catch(err) {
         console.log(err)
-        res.status(500).json({ message: 'Something went wrong' })
+        return res.status(500).json({ message: 'Something went wrong' })
     }
 })
 
