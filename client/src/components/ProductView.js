@@ -1,9 +1,10 @@
 import { useContext, useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
-// import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { CurrentUser } from "../contexts/CurrentUser"
 
 function ProductView() {
+    const navigate = useNavigate()
     const { id } = useParams()
     const { currentUser } = useContext(CurrentUser)
     console.log(currentUser)
@@ -33,6 +34,12 @@ function ProductView() {
         }
     }
 
+    function handleClick(e) {
+        e.preventDefault()
+
+        navigate('/cart')
+    }
+
     return (
         <div>
             {displayProduct()}
@@ -45,7 +52,7 @@ function ProductView() {
                     <button onClick={() => {setQuantity(quantity - 1)}}> - </button>
                     <button onClick={() => {setQuantity(quantity + 1)}}> + </button>
                 </div>
-                <button>Add To Cart</button>
+                <button onClick={(e) => {handleClick(e)}}>Add To Cart</button>
             </div>
         </div>
     )
