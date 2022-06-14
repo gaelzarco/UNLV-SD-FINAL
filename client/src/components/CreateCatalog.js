@@ -49,7 +49,7 @@ function CreateCatalog() {
                         onChange={e => setProduct({ ...product, price: parseInt(e.target.value) })}
                         required
                     />
-                    <label htmlFor='image'>Image</label>
+                    <label htmlFor='image'>Image Address</label>
                     <input
                         type='text'
                         name='image'

@@ -42,7 +42,7 @@ function LandingPage() {
     return (
       <div className='landingpage'>
         <h1 className='title'>
-            React.js Landing Page
+            MERN E-Commerce Landing Page
           </h1>
 
           {errMessage !== null
