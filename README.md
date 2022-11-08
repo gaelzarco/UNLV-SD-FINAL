@@ -1,6 +1,9 @@
 # Project MERN E-COM Final
 This project allows users to interact with a dyna,ic e-commerce website. It features user creation/authentication, product creation, and cart functionality. Unfortunately it is not finished but basic functionality is almost complete.
 
+# Scrapped TypeScript code:
+https://github.com/gaelzarco/HackerUSA-UNLV-Final
+
 ### API
 | Method | Path                                 | Purpose                                   |
 | ------ | ------------------------------------ | ----------------------------------------- |
